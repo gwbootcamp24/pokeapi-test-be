@@ -1,12 +1,27 @@
 import {getAllPokemonsList} from '../services/apiFunctions.js';
 // import {showOne} from '../services/'
 import * as path from 'path';
+import fs from 'node:fs/promises';
 
+export async function getAllPokemonsFromFile (req, res, next) {
+
+  try {
+
+    const data = await fs.readFile('./pokemon.json', { encoding: 'utf8' });
+    // console.log("data",data);
+    req.allPokemonsCompleteList = JSON.parse(data);
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+
+};
 
 export async function getAllPokemons (req, res, next) {
 
   try {
-    const url = "https://pokeapi.co/api/v2/pokemon?limit=5";
+    const url = "https://pokeapi.co/api/v2/pokemon?limit=10000";
     const allPokemonsList  = await getAllPokemonsList(url);
     req.allPokemonsCompleteList = []
     req.allPokemonsList = allPokemonsList
@@ -52,7 +67,7 @@ export async function sendPokemonsFE (req, res, next) {
     // console.log("hello",req.allPokemonsCompleteList)
 
     // }, 2500);
-    console.log("hello",req.allPokemonsCompleteList)
+    console.log("helloXXX",req.allPokemonsCompleteList)
     res.send(req?.allPokemonsCompleteList);
   } catch (error) {
     next(error);

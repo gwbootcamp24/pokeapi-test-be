@@ -1,0 +1,43 @@
+[
+  {
+    "elementTypes_0": "grass",
+   "id": "1",
+   "name": "bulbasaur",
+   "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+   "title": "1. bulbasaur",
+   "types": ["grass", "poison"],
+   "abilities": ["overgrow", "chlorophyll"],
+   "stats": "45 hp, 49 attack, 49 defense, 65 special-attack, 65 special-defense, 45 speed"
+
+ },
+ 
+ 
+
+ {
+    "elementTypes_0": "grass",
+   "id": "2",
+   "name": "ivysaur",
+   "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png",
+   "title": "2. ivysaur",
+   "types": ["grass", "poison"],
+   "abilities": ["overgrow", "chlorophyll"],
+   "stats": "60 hp, 62 attack, 63 defense, 80 special-attack, 80 special-defense, 60 speed"
+
+ },
+ 
+ 
+
+ {
+    "elementTypes_0": "grass",
+   "id": "3",
+   "name": "venusaur",
+   "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png",
+   "title": "3. venusaur",
+   "types": ["grass", "poison"],
+   "abilities": ["overgrow", "chlorophyll"],
+   "stats": "80 hp, 82 attack, 83 defense, 100 special-attack, 100 special-defense, 80 speed"
+
+ }
+ 
+
+]
