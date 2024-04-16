@@ -1,20 +1,39 @@
 import {getAllPokemonsList} from '../services/apiFunctions.js';
 // import {showOne} from '../services/'
 import * as path from 'path';
-import fs from 'node:fs/promises';
+import pokemonData from '../services/pokemonData.js';
 
 export async function getAllPokemonsFromFile (req, res, next) {
 
   try {
 
-    const data = await fs.readFile('./pokemon.json', { encoding: 'utf8' });
-    // console.log("data",data);
-    req.allPokemonsCompleteList = JSON.parse(data);
+    req.allPokemonsCompleteList = pokemonData;
 
     next();
   } catch (error) {
     next(error);
   }
+
+};
+
+export async function getSinglePokemonFromFile (req, res, next) {
+  try {
+
+    const { id } = req.params;
+    console.log(id)
+    const singlePokemon = pokemonData.find((p)=>{
+      console.log(p.id)
+      return(p.id === id.toString())})
+    console.log(singlePokemon)
+    if (singlePokemon === undefined) throw new Error('Pokemon not found')
+
+    req.singlePokemon = singlePokemon
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+   
 
 };
 
@@ -67,8 +86,23 @@ export async function sendPokemonsFE (req, res, next) {
     // console.log("hello",req.allPokemonsCompleteList)
 
     // }, 2500);
-    console.log("helloXXX",req.allPokemonsCompleteList)
+    // console.log("sendPokemonsFE",req.allPokemonsCompleteList)
     res.send(req?.allPokemonsCompleteList);
+  } catch (error) {
+    next(error);
+  }
+
+};
+
+export async function sendSinglePokemonFE (req, res, next) {
+
+  try {
+    // const wait = setTimeout(()=>{
+    // console.log("hello",req.allPokemonsCompleteList)
+
+    // }, 2500);
+    console.log("sendSinglePokemonFE",req.singlePokemon)
+    res.send(req?.singlePokemon);
   } catch (error) {
     next(error);
   }
